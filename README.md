@@ -3,7 +3,7 @@
 
 <!-- add technical charcha logo postgres session 3 -->
 # Kubernetes Assignment 1        
-### — A Task Documentation by Yash Anand—    
+### — A Task Documentation by Yash Anand —    
 
 _____________________________________________________________________________________                        
 
