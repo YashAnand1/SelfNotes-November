@@ -50,7 +50,7 @@ Through the means of this document, I will be providing answers and solutions to
 - Modifying Podman's Data Directory
 - Performing DO188 Guided Excercises
 
-Since the main objective of the first three chapters was to help the participants get a better understanding of Podman, I greatly utilised this tutorial by Tech Primers before getting started with executing the tasks. 
+Since the main objective of the first three chapters was to help the participants get a better understanding of Podman, I greatly utilised Tech Primers' tutorial that has been provided below before I got started with executing the assigned tasks: 
 
 <div align="center">     
 
