@@ -10,16 +10,13 @@ ________________________________________________________________________________
 ## Contents
 </div>
 
-
-- [Kubernetes Assignment 1](#kubernetes-assignment-1)
-    - [— A Task Documentation by Yash Anand —](#-a-task-documentation-by-yash-anand-)
-  - [Contents](#contents)
-- [**Overview**](#overview)
+  - [**Overview**](#overview)
   - [**Prerequisites**](#prerequisites)
   - [**Task 1: Understanding Namespaces**](#task-1-understanding-namespaces)
   - [**Task 2: Learning Encoding \& Encryption**](#task-2-learning-encoding--encryption)
   - [**Task 3: Differentiating Tunnels \& Bridges**](#task-3-differentiating-tunnels--bridges)
     - [Tunneling In Networking](#tunneling-in-networking)
+    - [Bridges In Networking](#bridges-in-networking)
   - [**Task 4: Understanding System Booting**](#task-4-understanding-system-booting)
   - [**Task 5: Modifying Podman's Data Directory**](#task-5-modifying-podmans-data-directory)
   - [**Task 6: Performing DO188 Guided Excercises**](#task-6-performing-do188-guided-excercises)
