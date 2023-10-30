@@ -23,7 +23,6 @@ ________________________________________________________________________________
 - [Task 6: Performing DO188 Guided Exercises](#task-6-performing-do188-guided-exercises)
   - [Chapter 2](#chapter-2)
   - [Chapter 3](#chapter-3)
-- [Conclusion](#conclusion)
 _____________________________________________________________________________________      
 <div align="center">
    
