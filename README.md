@@ -10,19 +10,25 @@ ________________________________________________________________________________
 ## Contents
 </div>
 
-  - [**Overview**](#overview)
-  - [**Prerequisites**](#prerequisites)
-  - [**Task 1: Understanding Namespaces**](#task-1-understanding-namespaces)
-  - [**Task 2: Learning Encoding \& Encryption**](#task-2-learning-encoding--encryption)
-  - [**Task 3: Differentiating Tunnels \& Bridges**](#task-3-differentiating-tunnels--bridges)
-    - [Tunneling In Networking](#tunneling-in-networking)
-    - [Bridges In Networking](#bridges-in-networking)
-  - [**Task 4: Understanding System Booting**](#task-4-understanding-system-booting)
-  - [**Task 5: Modifying Podman's Data Directory**](#task-5-modifying-podmans-data-directory)
-  - [**Task 6: Performing DO188 Guided Excercises**](#task-6-performing-do188-guided-excercises)
-  - [**6.1. Chapter 2**](#61-chapter-2)
-  - [**Conclusion**](#conclusion)
- 
+
+- [Overview](#overview)
+- [Prerequisites](#prerequisites)
+- [Task 1: Understanding Namespaces](#task-1-understanding-namespaces)
+- [Task 2: Learning Encoding & Encryption](#task-2-learning-encoding--encryption)
+- [Task 3: Differentiating Tunnels & Bridges](#task-3-differentiating-tunnels--bridges)
+  - [Tunneling In Networking](#tunneling-in-networking)
+  - [Bridges In Networking](#bridges-in-networking)
+- [Task 4: Understanding System Booting](#task-4-understanding-system-booting)
+- [Task 5: Modifying Podman's Data Directory](#task-5-modifying-podmans-data-directory)
+- [Task 6: Performing DO188 Guided Exercises](#task-6-performing-do188-guided-exercises)
+  - [Chapter 2](#chapter-2)
+    - [6.1. Creating Containers With Podman](#61-creating-containers-with-podman)
+    - [6.2. Accessing Containerized Network Services](#62-accessing-containerized-network-services)
+    - [6.3. Accessing Containers](#63-accessing-containers)
+    - [6.4. Managing Container Lifecycle](#64-managing-container-lifecycle)
+  - [Chapter 3](#chapter-3)
+- [Conclusion](#conclusion)
+  
 _____________________________________________________________________________________      
 <div align="center">
    
@@ -41,43 +47,7 @@ During our first session, the chapters that we were able to cover as well as the
 ![image](https://i.imgur.com/JN9QoAE.png)
    </div>
 
-Through the means of this document, I will be providing answers and solutions to the assigned tasks, which are as follows:
-- Learning Encoding & Encryption
-- Differentiating Tunnels & Bridges
-- Understanding System Booting
-- Modifying Podman's Data Directory
-- Performing DO188 Guided Excercises
-
-Since the main objective of the first three chapters was to help the participants get a better understanding of Podman, I greatly utilised Tech Primers' tutorial that has been provided below before I got started with executing the assigned tasks: 
-
-<div align="center">     
-
-[![IMAGE_ALT](https://img.youtube.com/vi/Za2BqzeZjBk/maxresdefault.jpg)](https://www.youtube.com/watch?v=Za2BqzeZjBk)
-   </div>
-
-In the following sections, I have documented, demonstrated and explained how I was able to complete the assigned tasks that have been mentioned above, while using [Red Hat's DO188 Course](https://rol.redhat.com/rol/app/courses/do188-4.12/pages/pr01) as my main resource and guide. However, before being able to get started with the tasks, it was very much important to fulfill some prerequisites, which have been discussed in the next section.
-
-<!-- yt links add krne de vaste:
-0 or 1 or 2 or 3 or 4, 0 (big) to 4 (small)
-hqdefault.jpg <- high quality
-mqdefault.jpg <- medium quality
-sddefault.jpg <- standard definition
-maxresdefault.jpg <- maximum resolution -->
-
-_____________________________________________________________________________________     
-
-<div align="center">
-   
-## **Prerequisites**
-</div>
-
-Before I could get started with executing the assigned tasks, I needed to fulfill some preqrequisites, which only included logging into my Red Hat account and 
-<div align="center">     
-
-![image]()
-   </div>
-
---------
+_____________________________________________________________________________________   
 
 <div align="center">
 
@@ -86,36 +56,23 @@ Before I could get started with executing the assigned tasks, I needed to fulfil
 
 > Explain namespaces, their types & uses.   
 
-Namespaces can be understood as enclosures that provide process and resuorce isolation. They allow different processes or containers to have their own view of various system resources, making it possible to run multiple instances of a resource without them interfering with each other. Linux namespaces are primarily used in containerization technologies like Docker and Kubernetes. Here are some common types of namespaces in Linux:
+Namespaces can be understood as enclosures that provide process and resuorce isolation. They allow different processes or containers to have their own view of various system resources, making it possible to run multiple instances of a resource without them interfering with each other. Linux namespaces are primarily used in containerissation technologies like Docker and Kubernetes. Here are some examples of types of namespaces in Linux:
 
-PID Namespace (Process ID Namespace): PID namespaces isolate the process IDs of a group of processes. Each namespace has its own set of process IDs, ensuring that processes in one namespace can't see or interfere with processes in another.
+**PID Namespace**:    
+ProcessID namespaces isolate the process IDs of a group of processes. Each namespace has its own set of process IDs, ensuring that processes in one namespace can't see or interfere with processes in another.
 
-Mount Namespace: Mount namespaces provide an isolated view of the filesystem. Each namespace has its own mount points, so processes within a namespace can have a different view of the filesystem, even if they are running on the same physical machine.
+**Mount Namespace**: 
+Mount namespaces provide an isolated view of the filesystem. Each namespace has its own mount points, so processes within a namespace can have a different view of the filesystem, even if they are running on the same physical machine.
 
-Network Namespace: Network namespaces isolate network resources such as network interfaces, routing tables, and firewall rules. This allows each namespace to have its own network stack, making it possible to create separate network environments for different containers or processes.
+**Network Namespace**: 
+Network namespaces isolate network resources such as network interfaces, routing tables, and firewall rules. This allows each namespace to have its own network stack, making it possible to create separate network environments for different containers or processes.
 
-UTS Namespace (Unix Time-Sharing Namespace): UTS namespaces isolate system identification information, such as the hostname and NIS (Network Information Service) domain name. This means each namespace can have its own hostname, making it appear as though different containers have different system identities.
+**User Namespace**:  
+User namespaces map user and group IDs inside a namespace to different IDs outside the namespace. This is crucial for security and allows a container, for example, to have its own user and group IDs while remaining isolated from the host system.
 
-IPC Namespace (Inter-Process Communication Namespace): IPC namespaces isolate System V IPC objects like message queues, semaphore sets, and shared memory segments. This prevents processes in one namespace from interfering with or accessing these objects in other namespaces.
+**Cgroup Namespace**:  
+Cgroup namespaces provide isolation for control groups (cgroups), which are used for resource management and limiting resource usage by processes.
 
-User Namespace: User namespaces map user and group IDs inside a namespace to different IDs outside the namespace. This is crucial for security and allows a container, for example, to have its own user and group IDs while remaining isolated from the host system.
-
-Cgroup Namespace: Cgroup namespaces provide isolation for control groups (cgroups), which are used for resource management and limiting resource usage by processes.
-
-house with different rooms. Each room serves a specific purpose, such as a bedroom, kitchen, living room, and bathroom. These rooms are like namespaces in the computer world. Here's how the analogy works:
-
-Isolation: Just as namespaces keep computer processes or programs isolated from each other, rooms in a house are separate spaces with their own purpose. You sleep in the bedroom, cook in the kitchen, relax in the living room, and use the bathroom for specific tasks. Each room is isolated from the others, like namespaces, which keep processes separate.
-
-Resources: Each room has its own set of resources. The kitchen has cooking utensils and appliances, the bedroom has a bed, and the living room has a TV and a couch. Similarly, namespaces in computing have their own set of resources and configurations.
-
-Interference: If you're in the kitchen, you're focused on cooking, and what happens in the living room doesn't affect you. Similarly, if a program is running in one namespace, it won't interfere with what's happening in another namespace.
-
-Organization: Rooms help organize different activities within the house. Similarly, namespaces organize different processes or programs in the computer system, ensuring they have their own space and don't create chaos or conflicts.
-
-<div align="center">
-
-![image](https://i.imgur.com/6cPtjnt.gif)
-</div>
 
 --------
 
@@ -411,15 +368,376 @@ _____________________________
 
 <div align="center">
 
-## **6.2. Creating Containers With Podman**
+## **6.2. Accessing Containerized Network Services**
 </div>
 
-## **6.2.1: Creating Containers with Podman**
+As per the second Guided Exercise from the Chapter-2, we were supposed to run two applications that would be able to communicate with eachother using the Podman DNS System. The objective of this exercise was to help us better understand the workings of DNS in Podman Networks.The two applications were `times` and `cities` and it was expected they would communicate.
 
+Before I could get started with the exercises, I ran the following command for starting a lab environment with some basic network services:
+```
+lab start basics-exposing
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/FJ9QcIX.png)
+</div>
+
+## **6.2.1: Application Source Codes**
+> Examine the source code of the applications.
+
+The first exercise was to look into the source codes of the two applications and in order to do so, it was required to enter the directory in which these applciations were located in. This was done by running the following command:
+```
+cd ~/DO188/labs/basics-exposing
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/10mogcU.png)
+</div>
+
+```
+cat podman-info-times/app/main.go
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/yGVvyAE.png)
+</div>
+
+```
+cat podman-info-cities/app/main.go
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/aAWEVWs.png)
+</div>
+
+Lastly, I ran the `cd ~` command for returning back to the home directory since I had verified and learnt about the ports of both the applications that were being used by the applications.
+
+## **6.2.2: Podman Network With DNS**
+> Create a Podman network with DNS enabled
+
+```
+podman network inspect podman
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/tmvZ48B.png)
+</div>
+
+```
+podman network create cities
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/ZPCOQCr.png)
+</div>
+
+```
+podman network inspect cities
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/bFZGvFG.png)
+</div>
+
+## **6.2.3: Testing Networked Applications**
+> Start and test the times application attached to the cities network.
+
+```
+podman run --name times-app \
+--network cities -p 8080:8080 -d \
+registry.ocp4.example.com:8443/redhattraining/podman-info-times:v0.1
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/XyOC9Hx.png)
+</div>
+
+```
+podman inspect times-app \
+-f '{{.NetworkSettings.Networks.cities.IPAddress}}'
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/ZZNMYHT.png)
+</div>
+
+```
+podman run --rm --network cities \
+registry.ocp4.example.com:8443/ubi8/ubi-minimal:8.5 \
+curl -s http://10.89.0.2:8080/times/BKK && echo
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/mosOqDN.png)
+</div>
+
+```
+podman run --rm --network cities \
+registry.ocp4.example.com:8443/ubi8/ubi-minimal:8.5 \
+curl -s http://times-app:8080/times/BKK && echo
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/Ci9HQVn.png)
+</div>
+
+## **6.2.4: Starting Networked Applications**
+> Start and test the cities application attached to the cities network.
+
+```
+podman run --name cities-app \
+--network cities -p 8090:8090 -d \
+-e TIMES_APP_URL=http://times-app:8080/times \
+registry.ocp4.example.com:8443/redhattraining/podman-info-cities:v0.1
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/xXJD3Uz.png)
+</div>
+
+```
+curl -s http://localhost:8090/cities/MAD | jq
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/1Qq0TE5.png)
+</div>
+
+```
+curl -s http://localhost:8090/cities/SAN | jq
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/1Qq0TE5.png)
+</div>
+
+Given that I had been able to successfuly run two applications while using the containerised network services. therefore it was time to finish this exercise on the Workstation by running the command of `lab finish basics-exposing`
 ____________________________
 
-  <div align="center">
+<div align="center">
 
+## **6.3. Accessing Containers**
+</div>
+
+> Use the podman exec and podman cp commands to debug and correct container configuration.
+
+The objective of this exercise was to help me better understand the `podman exec` and `podman cp` commands for debugging and correcting container configurations. The idea was to be able to execute commands inside of a container and also for copying files form and into a container
+
+Before I could get started with the exercises, I ran the following command for starting a lab environment:
+```
+lab start basics-accessing
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/R9dImbX.png)
+</div>
+
+## **6.3.1: Create New Containers**
+> Create a new container with the following parameters:     
+> Container name: nginx   
+> Container image: registry.ocp4.example.com:8443/redhattraining/podman-nginx-helloworld  
+> Route traffic from port 8080 on your machine to port 8080 inside of the container. Use the -d option to run the container in the background.    
+
+```
+podman run --name nginx -d -p 8080:8080 \
+  registry.ocp4.example.com:8443/redhattraining/podman-nginx-helloworld
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/rBjzST9.png)
+</div>
+
+## **6.3.2: Browsing Nginx**
+
+The next step was to navigate to `localhost:8080` in order to find the `404 Not Found` error, which I did by opening this URL in the Firefox browser.   
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/6jq7bfU.png)
+</div>
+
+## **6.3.3: Troubleshoot The Issue**
+
+In order to troubleshoot this `404 Not Found` Error, I ran the `podman cp nginx:/var/log/nginx/error.log error.log` command for copying the nginx logs to my system. Once I had done so, I opened the `error.log` in gedit for finding what the issue was using the following command:
+```
+gedit error.log
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/94i2T5z.png)
+</div>
+Inside this log file, I was able to find that the `/usr/share/nginx/html/public/index.html` file was not being read. In order to ensure that this directory did indeeed exist, I tried to access it using the `podman exec nginx ls /usr/share/nginx/html/public` but I was unable to do so due to `ls: cannot access '/usr/share/nginx/html/public': No such file or directory`. This meant that the directory did not exist inside the container.
+
+Since the `public` sub-directory did not exist, I further verfieid the existence of `/usr/share/nginx/html` to know if atleast it was in existence using the following command:
+ ```
+podman exec nginx ls /usr/share/nginx/html
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/sdLcXMz.png)
+</div>
+
+## **6.3.4: Correct the server configuration**
+
+Through the above output, I was able to verify the existence of index.html and in order to correct the server configurations, I copied the `nginx.conf` file from the container to my machine using the `podman cp nginx:/etc/nginx/nginx.conf .` command and then opened up this configuration file on my system using the `gedit nginx.conf` command. 
+
+In the configuration file, I was supposed to replace the root path to `/usr/share/nginx/html/` but in my case, this was already set as the path. To correct the configuration file, I added the following lines:
+```
+listen       8080 default_server;
+server_name  _;
+root         /usr/share/nginx/html/;
+``` 
+
+Afterwards, I ran the `podman cp nginx.conf nginx:/etc/nginx` command for replacing `/etc/nginx/nginx.conf` with the modified nginx.file from my system.
+<div align="center">
+
+![image](https://i.imgur.com/9UXe978.png)
+</div>
+
+## **6.3.5: Verfiying Functionality Of Container**
+
+To ensure that the container would be able to run after the changes made, I first restarted it using the `podman exec nginx nginx -s reload` command and then opened up `localhost:8080` on the Red Hat Workstation Machine's Firefox browser:
+
+After the changes, made I was able to run make the `Hello world from nginx!` message displayed as the output of `localhost:8080`:
+<div align="center">
+
+![image](https://i.imgur.com/XVtyvem.png)
+</div>
+
+Additionally, since this exercise had been completed, I decided to run the the `lab finish basics-accessing` command for finishing the lab environemnt that had been ceated so far.
+__________________________
+
+<div align="center">
+
+## **6.4. Managing Container Lifecycle**
+</div>
+
+> Manage the lifecycle of a container that runs an Apache HTTP server.
+
+As per this exercise, it was expected that we would be able to gain ideas about the following Podman concepts:
+- Get detailed information about a container.
+- Stop containers.
+- Restart a stopped container.
+- Delete containers.
+
+Similar to the previous exercises, in order to get started woth this exercise, it was requried to first ensure that `lab start basics-lifecycle` command had been run for creating a safe environment. 
+
+<div align="center">
+
+## **6.4.1: Creating Container With Apache Server**
+>  Create a container that runs an Apache HTTP server in the background.
+</div>
+
+```
+podman run --name httpd -d -p \
+ 8080:8080 registry.ocp4.example.com:8443/ubi8/httpd-24
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/TVCXSw1.png)
+</div>
+
+## **6.4.2: Verify Container Is Running**
+
+In order to ensure that the container that was just created in the previous step, I needed to run the `podman ps` command for ensuring that the container had truly been created. However, there were some other way of checking whether the container was running or not, such as `podman inspect --format='{{.State.Status}}' httpd` as well as the `podman inspect --format='{{.State.Running}}' httpd` commands.
+
+The outputs of these commands were as follows:
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/q1hVcvc.png)
+</div>
+
+Additionally, I also ran `locahost:8080` in a web browser and I was able to see that the Apache Server was running. Therefore, through these 4 methods, I was able to confirm that my container was up and running.
+
+## **6.4.3: Stop The Container**
+
+In this section, the objective for this task was to stop the running container that had been started previously. Therefore, in order to stop a running container, I ran the `podman stop httpd` command. In order to ensure that this container had truly been stopped, I ran the `podman inspect --format='{{.State.Status}}' httpd` and `podman inspect --format='{{.State.Running}}' httpd` commands. The output of running these was as follows:
+<div align="center">
+
+![image](https://i.imgur.com/DlLiU43.png)
+</div>
+
+To further ensure that the container had stopped, I also opened my the Firefox web browser on the Red Hat Workstation Lab and ran `localhost:8080` on it to see if it was no longer accessible, which it was not.
+
+## **6.4.4: Restart The Container**
+
+Given that the container had been just stopped in the previous section, in this section I worked on restarting it. In order to restart it, I ran the `podman restart httpd` command and then `podman ps` for ensuring that the container had been restarted. The output of running both of these commands was as follows: 
+
+<div align="center">
+
+![image](https://i.imgur.com/e7atUML.png)
+</div>
+
+To check if the httpd service was available on `localhost:8080`, I opened up the URL in the Firefox web browser. The output of doing so was that the service was indeed up and running.
+
+## **6.4.5: Removing The Container**
+
+The usual method of removing a container is by running the `podman rm <container>` or `podman rm httpd` command. However, when I ran this command, I was shown an error stating that this container was already up and running since I had restarted it earlier. In order to remove it anyway without having to stop the container, I ran the `podman rm httpd --force` command which allowed me to successfuly remove the running container. The output of these commands was as follows:
+<div align="center">
+
+![image](https://i.imgur.com/tq7kFfQ.png)
+</div>
+
+## **6.4.6: Verifying Removal Of Container**
+In order to ensure that the container removed in the previous section had been truly removed, I ran the `podman inspect --format='{{.State.Running}}' httpd` command. Since the container had really been removed, I was able to successfuly get the following output which signified the removal of the container:
+<div align="center">
+
+![image](https://i.imgur.com/B2Tfhuj.png)
+</div>
+
+## **6.4.7: Forcefully Stopping Container If SIGTERM Fails**
+> Forcefully stop a container that does not respond to the SIGTERM signal.
+
+SIGTERM 15 is a linux process that carries out the termination of processes. In this section, I will be stopping an application in which SIGTERM fails to kill or terminate a container running in podman. In order to do so, I first created a container of an application which by default ignroes `SIGTERM 15` signal. For creating such a container, I first ran the following command for creating the greeter container.
+```
+podman run --name greeter -d \
+registry.ocp4.example.com:8443/redhattraining/podman-greeter-ignore-sigterm
+``` 
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/CPqCb6I.png)
+</div>
+
+Once the container had been created using this method, I ran the `podman stop greeter --time=5` command which in turn gave the output of `WARN[0005] StopSignal SIGTERM failed to stop container greeter in 5 seconds, resorting to SIGKILL`. What this output means is that Podman will try to wait for 5 seconds until an application has been stopped and it isn't stopped, Podman will send the `SIGKILL` process for forecully killing the container.
+
+For directly sending the `SIGKILL` process, I also restarted the container using the `podman restart greeter` command and ran the `podman kill greeter` command for directly sending the `SIGKILL` process to kill a container. The output of doing so was as follows:
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/oA5K7JW.png)
+</div>
+
+Given that this exercise had been completed, I finally ran the `lab finish basics-lifecycle` command for putting the lab created for this exercise back to sleep.
+________________________
+
+<div align="center">
+
+## **Chapter-3**
+</div>
+
+
+____________________
 ## **Conclusion**
 </div>
 
