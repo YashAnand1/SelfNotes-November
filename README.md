@@ -22,10 +22,6 @@ ________________________________________________________________________________
 - [Task 5: Modifying Podman's Data Directory](#task-5-modifying-podmans-data-directory)
 - [Task 6: Performing DO188 Guided Exercises](#task-6-performing-do188-guided-exercises)
   - [Chapter 2](#chapter-2)
-    - [6.1. Creating Containers With Podman](#61-creating-containers-with-podman)
-    - [6.2. Accessing Containerized Network Services](#62-accessing-containerized-network-services)
-    - [6.3. Accessing Containers](#63-accessing-containers)
-    - [6.4. Managing Container Lifecycle](#64-managing-container-lifecycle)
   - [Chapter 3](#chapter-3)
 - [Conclusion](#conclusion)
 _____________________________________________________________________________________      
@@ -265,9 +261,6 @@ In this section, I will be covering all the Guided Exercises from the chapters m
 </div>
 
 > Creating Containers with Podman
-
-The second chapter helped me gain lots of
-
 
 <div align="center">
 
@@ -758,6 +751,109 @@ ________________________
 ## **Chapter-3**
 </div>
 
+<div align="center">
+
+## **1. Container Image Registries**
+</div>
+
+As per this Guided exercise, the goal is to gain a better understanding of logging in to container image registries, moving container images between registries and testing quay images. In order to et started with this exercise, I first ran `lab start images-basics`.
+
+## **1.1 Login To RHOCP**
+
+As per the first sub-task, it was required for me to lgoin as the admin to the RHOCP using the following command:
+```
+oc login -u admin -p redhatocp \
+    https://api.ocp4.example.com:6443
+``` 
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/RZsO4Va.png)
+</div>
+
+As per the output above, I was able to successfuly login to the RHOCP. Having logged in to the RHOCP, it was now necessary for me to login to the RHOCP registry using Podman. This particular sub-task was executed by running the following command:
+```
+podman login -u $(oc whoami) -p $(oc whoami -t) \
+  default-route-openshift-image-registry.apps.ocp4.example.com
+``` 
+The output of the above command was `Login Succeeeded!` and having logged into RHOCP Registry, it was also possible for me now to login into the `registry.ocp4.example.com:8443` using Podman. Like the previous commands, the output of this commad was also successful as I was shown `Login Succeeded!` for the following command:
+```
+podman login -u developer -p developer \
+  registry.ocp4.example.com:8443
+``` 
+The output of all the commands mentioned above was as follows:
+<div align="center">
+
+![image](https://i.imgur.com/D82Fsr5.png)
+</div>
+
+Given that the logging in to RHCOP had been completed, I could now copy the container image using a tool called skopeo, which is used for manipulating container images.
+
+## **1.2 Copying Container Image**
+> Use skopeo to copy the default-route-openshift-image-registry.apps.ocp4.example.com/default/python:3.9-ubi8 image to the registry.ocp4.example.com:8443 registry.
+
+Here I have copied a container image from one registry to another. tHE copying of the image is happening from the Docker registry to the RHOCP registry. This was using the following commands:
+```
+\
+RHOCP_REGISTRY="default-route-openshift-image-registry.apps.ocp4.example.com"
+skopeo copy --dest-tls-verify=false \
+docker://${RHOCP_REGISTRY}/default/python:3.9-ubi8 \
+docker://registry.ocp4.example.com:8443/developer/python:3.9-ubi8
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/T4IvjhS.png)
+</div>
+
+## **1.3 Making Image Public**
+
+Despite the image container not being able to copied, I decided to look into how in the internal registry, an image could be made public. To do so, I opened `https://registry.ocp4.example.com:8443` in my Red Hat Workstation. Once the website had been opened, I logged into it using `developer` as password and username:
+<div align="center">
+
+![image](https://i.imgur.com/c3aiqPM.png)
+</div>
+
+Once I had logged into the site, I searched for `developer` in the Filter repository field and clicked `developer/python` repository. However, the result was "No Matching Repositories", which was unlike what was supposed to happen as per the task.
+
+## **1.4 Testing Image As Unauthenticated User**
+> Test the image as an unauthenticated user.
+
+In order to see the output of how a container would get created as an unauthenticated user, I ran the `podman logout --all` command for logging out of all the registries. Now to check what the output would have been if I tried to pull the registry.ocp4.example.com:8443/developer/python:3.9-ubi8 image, I ran the following command:
+```
+podman pull \
+  registry.ocp4.example.com:8443/developer/python:3.9-ubi8
+podman run --rm \
+  registry.ocp4.example.com:8443/developer/python:3.9-ubi8 python3 --version
+```
+Since the above image had not been made public in the previous section, I was displayed the `Unauthorised` error. In order to start the image that was supposed to be pulled in the output provided above, the second command was ran by me to start the container but since the image had not been pulled due to not being public, I was unable to carry out this task.
+
+Output:
+<div align="center">
+![image](https://i.imgur.com/a2PMoPK.png)
+</div>
+
+In order to finish this lab session on my Red Hat workstation, I ran the command of `lab finish images-basics`.
+
+______________
+
+## **2. Managing Images**
+>Learn to manage container images
+
+The objective of this particular Guide exercise was to help me to peform the following actions:
+- Creating images
+- Listing images
+- Inspecting images
+- Tagging images
+- Removing images
+- Searching images
+- Pulling images
+
+In order to prepare the system for this exercise, I ran the `lab start images-managing` command for creating a copy of ContainerFile that is used for building simple-server image. 
+
+## **2.1. Verifying Absence Of Server Image**
+
+Under this sub-task, I was 
 
 ____________________
 ## **Conclusion**
