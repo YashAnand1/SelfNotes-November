@@ -20,11 +20,7 @@ ________________________________________________________________________________
   - [**Task 4: Understanding System Booting**](#task-4-understanding-system-booting)
   - [**Task 5: Modifying Podman's Data Directory**](#task-5-modifying-podmans-data-directory)
   - [**Task 6: Performing DO188 Guided Excercises**](#task-6-performing-do188-guided-excercises)
-  - [**Task 6.1: Chapter 2 Guided Exercises**](#task-61-chapter-2-guided-exercises)
-  - [**Task 6.1.1: Creating Containers with Podman**](#task-611-creating-containers-with-podman)
-  - [**Task 6.1.2: Accessing Containerized Network Services**](#task-612-accessing-containerized-network-services)
-  - [**Task 6.1.3: Accessing Containers**](#task-613-accessing-containers)
-  - [**Task 6.1.4: Managing the Container Lifecycle**](#task-614-managing-the-container-lifecycle)
+  - [**6.1. Chapter 2**](#61-chapter-2)
   - [**Conclusion**](#conclusion)
  
 _____________________________________________________________________________________      
@@ -277,26 +273,128 @@ _____________________________
 
 </div>
 
-As per this task, the participants were expected to 
+As per this task, the participants were expected to utilise the Guided exercises from the Red Hat DO-188 Course's chapters provided below:
+-  Chapter 2: Podman Basics
+-  Chapter 3: Container Images
 
-## **Task 6.1: Chapter 2 Guided Exercises**
-## **Task 6.1.1: Creating Containers with Podman**
+In this section, I will be covering all the Guided Exercises from the chapters mentioned above.
+
+## **6.1. Chapter 2**
+> Creating Containers with Podman
+
+The second chapter helped me gain lots of
+
+## **6.1.1: Creating Containers with Podman**
 > Create several Podman containers by using different options.
 
+In order to create a container using the RedHat Lab after I had logged into the `workstation machine` and had signed into it as the `student` user, it was required for me to first prepare my system for this exercise. Therefore, I first ran he `lab start basics-creating` command and once that had been done, I first ran the command provided below:
+```
+podman pull \
+ registry.ocp4.example.com:8443/ubi8/ubi-minimal:8.5
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/wSOyl9X.png)
+</div>
+
+The use of the above command was to fetch the image from the registry for creating a container. Once I had fetched the image, it was important to ensure that it had truly been fetched and in order to do so, I ran the following command:
+```
+podman images
+```  
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/pUekq5b.png)
+</div>
+
+The output of the above command successfuly showed that the image that we had fetched had truly been pulled. Given that I had the access to the container image, it was now possible to create a container out of it while also making sure that the command had run. In order to do so, I ran the following command:
+```
+podman run --rm \
+ registry.ocp4.example.com:8443/ubi8/ubi-minimal:8.5 echo 'Hello Red Hat'
+```  
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/VzmZCCH.png)
+</div>
+
+The displayed output of the above command verified that the command had been executed since the message added for echoing in the terminal had certainly been echoed. Since I had not started the container yet, it was only expected for it be not running after the execution of the `podman run` command had been done. To ensure this was the case, I ran the following command:
+```
+podman ps
+```  
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/DPoqu71.png)
+</div>
+
+In the above output, I was unable to view the container that I had just created listed in the output. Therefore, we could now move to the next section.
 
 ## **Task 6.1.2: Accessing Containerized Network Services**
 > Run two applications that communicate by using the Podman DNS system.
 
+As per the sub-task of creating a container in Podman, I was expected to set and understand the basics of the environment variables of the container image that I had pulled previously. In order to do so, I used the command provided below for setting the environemnt variables of the container that was to be again created. It should be noted that I used the `-e` flag for setting the environment variables:
+```
+podman run --rm -e GREET=Hello -e NAME='Red Hat' \
+ registry.ocp4.example.com:8443/ubi8/ubi-minimal:8.5 printenv GREET NAME
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/u6YaujQ.png)
+</div>
+
+Given that the environment variables had been printed as the output, it meant that the variables had been set sucessfuly. Again since I had not started the container, it was expect that the container would not be shown as running if the following command was run
+```
+podman ps
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/DPoqu71.png)
+</div>
+
 ## **Task 6.1.3: Accessing Containers**
 > Use the podman exec and podman cp commands to debug and correct container configuration.
 
-## **Task 6.1.4: Managing the Container Lifecycle**
-> Manage the lifecycle of a container that runs an Apache HTTP server.
+Now that I had understood how environment variables were set, I created a new container for `httpd-24`. In order to do so, I directly ran the `podman run` command before downloading its container image first. The container was set to listen on port 8080 of container and machine. The entire command for creating such a container was as follows:
+```
+podman run --rm -p 8080:8080 \
+ registry.ocp4.example.com:8443/ubi8/httpd-24
 
-
+```
+Output:
 <div align="center">
 
-![image](https://i.imgur.com/6cPtjnt.gif)
+![image](https://i.imgur.com/q8SB47A.png)
+</div>
+
+In order to ensure that the container had started and that its `httpd` services were working as expected, I opened up my browser and searched the following URL on my Red Hat Workstation Lab's Firefox:
+```
+localhost:8080
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/1kcy9vM.png)
+</div>
+
+The above output successfuly showed that the HTTPD service had started working on the system after creating the `httpd container`. However, in order to ensure that this container could be allowed to run in the background without having to risk the stopping of the container in case of terminal's exit, I pressed `CTRL+C` and ran the following command for running the command in detatched mode:
+```
+podman run --rm -d \
+-p 8080:8080 registry.ocp4.example.com:8443/ubi8/httpd-24
+```
+Output:
+<div align="center">
+
+![image](https://i.imgur.com/M1km4VR.png)
+</div>
+
+Running `podman ps` after creating the detached container using the `-d` flag, I was able to successfuly verify that the container had certainly been created and was indeed working in the background. Given that this Guide Exercise had been completed, I could now move on to the next Guide Exercise from the Chapter once again but before that, I ran the `lab finish basics-creating` command to ensure that the experiments done in this section would not affect the future experiments:
+<div align="center">
+
+![image](https://i.imgur.com/Pux4Qi1.png)
 </div>
 
 _____________________________
