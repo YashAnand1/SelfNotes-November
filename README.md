@@ -269,8 +269,9 @@ I ran the `podman info` command to view the data directory for podman containers
 Therefore, I was able to successfuly change the default container data storage path from `/var/lib/containers` to `/data` using the steps that have been mentioned above.
 _____________________________
 
-## **Task 6: Performing DO188 Guided Excercises**
+<div align="center">
 
+## **Task 6: Performing DO188 Guided Excercises**
 </div>
 
 As per this task, the participants were expected to utilise the Guided exercises from the Red Hat DO-188 Course's chapters provided below:
@@ -279,10 +280,20 @@ As per this task, the participants were expected to utilise the Guided exercises
 
 In this section, I will be covering all the Guided Exercises from the chapters mentioned above.
 
-## **6.1. Chapter 2**
+<div align="center">
+
+## **Chapter-2**
+</div>
+
 > Creating Containers with Podman
 
 The second chapter helped me gain lots of
+
+
+<div align="center">
+
+## **6.1. Creating Containers With Podman**
+</div>
 
 ## **6.1.1: Creating Containers with Podman**
 > Create several Podman containers by using different options.
@@ -396,9 +407,16 @@ Running `podman ps` after creating the detached container using the `-d` flag, I
 
 ![image](https://i.imgur.com/Pux4Qi1.png)
 </div>
-
 _____________________________
 
+<div align="center">
+
+## **6.2. Creating Containers With Podman**
+</div>
+
+## **6.2.1: Creating Containers with Podman**
+
+____________________________
 
   <div align="center">
 
