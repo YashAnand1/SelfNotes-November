@@ -28,7 +28,6 @@ ________________________________________________________________________________
     - [6.4. Managing Container Lifecycle](#64-managing-container-lifecycle)
   - [Chapter 3](#chapter-3)
 - [Conclusion](#conclusion)
-  
 _____________________________________________________________________________________      
 <div align="center">
    
@@ -46,6 +45,29 @@ During our first session, the chapters that we were able to cover as well as the
 
 ![image](https://i.imgur.com/JN9QoAE.png)
    </div>
+
+Through the means of this document, I will be providing answers and solutions to the assigned tasks, which are as follows:
+- Learning Encoding & Encryption
+- Differentiating Tunnels & Bridges
+- Understanding System Booting
+- Modifying Podman's Data Directory
+- Performing DO188 Guided Excercises
+
+Since the main objective of the first three chapters was to help the participants get a better understanding of Podman, I greatly utilised Tech Primers' tutorial that has been provided below before I got started with executing the assigned tasks: 
+
+<div align="center">     
+
+[![IMAGE_ALT](https://img.youtube.com/vi/Za2BqzeZjBk/maxresdefault.jpg)](https://www.youtube.com/watch?v=Za2BqzeZjBk)
+   </div>
+
+In the following sections, I have documented, demonstrated and explained how I was able to complete the assigned tasks that have been mentioned above, while using [Red Hat's DO188 Course](https://rol.redhat.com/rol/app/courses/do188-4.12/pages/pr01) as my main resource and guide. However, before being able to get started with the tasks, it was very much important to fulfill some prerequisites, which have been discussed in the next section.
+
+<!-- yt links add krne de vaste:
+0 or 1 or 2 or 3 or 4, 0 (big) to 4 (small)
+hqdefault.jpg <- high quality
+mqdefault.jpg <- medium quality
+sddefault.jpg <- standard definition
+maxresdefault.jpg <- maximum resolution -->
 
 _____________________________________________________________________________________   
 
