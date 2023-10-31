@@ -851,15 +851,5 @@ The objective of this particular Guide exercise was to help me to peform the fol
 
 In order to prepare the system for this exercise, I ran the `lab start images-managing` command for creating a copy of ContainerFile that is used for building simple-server image. 
 
-## **2.1. Verifying Absence Of Server Image**
-
-Under this sub-task, I was 
-
-____________________
-## **Conclusion**
-</div>
-
-Through this 
-
---------
+------------------------------------
 
