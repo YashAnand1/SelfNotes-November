@@ -7,7 +7,7 @@
 ## Check this image from blackboard for reference: 
 ![img](https://i.imgur.com/YDL5kxD.jpg)
 
-<div>
+</div>
 
 **Root vs. Rootless Container**:
 - Root vs. Rootless Container (Always use Rootless)
