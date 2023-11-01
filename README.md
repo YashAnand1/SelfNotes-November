@@ -18,7 +18,9 @@ ________________________________________________________________________________
 </div>
 
 
-Greetings from my self-documentation repository, which I have set up in order to closely track my everyday office activities in November. This document is to act liek a  log of my daily contributions towards work during my time at office. Though the daily updates will be written for my own self-reference, they can also be used as a reference for others who may want to look into the contributions that I have made per day. These updates will be used to systematically log my assignments, accomplishments, and minute information related to command executions. 
+Greetings from the 1st November of 2023 and welcome to my self-documentation repository which I have set up in order to closely track my everyday office activities in November. 
+
+This document is to act liek a  log of my daily contributions towards work during my time at office. Though the daily updates will be written for my own self-reference, they can also be used as a reference for others who may want to look into the contributions that I have made per day. These updates will be used to systematically log my assignments, accomplishments, and minute information related to command executions. 
 _____________________________________________________________________________________   
 
 <div align="center">
