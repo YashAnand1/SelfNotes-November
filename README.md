@@ -34,4 +34,4 @@ ________________________________________________________________________________
 
 The daily updates or logs will be written everyday and pushed to this repository using Git. In case of missed updates, I will be trying to publish them the next day. 
 
-These logs can be accessed by going through the index provided in this repository. For reference, these daily logs will also be attached with the daily updates mails that are sent from my side to my Team Leader.
+These logs can be accessed by going through the index provided in this repository. For reference, these daily logs can also be attached with the daily updates mails that are sent from my side to my Team Leader.
