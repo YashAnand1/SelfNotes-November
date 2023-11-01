@@ -61,12 +61,7 @@
 
 <div align="center">
 
-# MON 1 NOV
-
 ## Spreadsheet 
-
-|**Duration: 10:00-02:30**|**Day: Wednesday**|
-|-------------------------|------------------|
 </div>
 
 **Data Manipulation**:
@@ -77,3 +72,21 @@
 - to add document_tested_date b/w column o-p?
 - changed col BA and made first row physical type to suit the data.
 - changed col X "Haprox_Running" -> Haproxy_Running
+
+<div align="center">
+
+## KVM      
+</div>
+
+**Troubleshooting Issues**
+> root@node:/home/imsnode/kubeadm-scripts# kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b 
+[preflight] Running pre-flight checks
+error execution phase preflight: [preflight] Some fatal errors occurred:
+	[ERROR FileAvailable--etc-kubernetes-kubelet.conf]: /etc/kubernetes/kubelet.conf already exists
+	[ERROR Port-10250]: Port 10250 is in use
+	[ERROR FileAvailable--etc-kubernetes-pki-ca.crt]: /etc/kubernetes/pki/ca.crt already exists
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+root@node:/home/imsnode/kubeadm-scripts# 
+
+- First I ran `netstat -aop | grep 10250` for fiding which port was already in use. Output: 
