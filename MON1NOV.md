@@ -2,7 +2,7 @@
 
 ## Kubernetes Session 2 10:00-02:30
 ## 1Nov - Wed - Session 2
-## Check this image from blackboard for reference:
+## Check this image from blackboard for reference: https://i.imgur.com/YDL5kxD.jpg
 
 - root vs rootless container (always make rootless)
 unsecure vs secure
@@ -35,5 +35,4 @@ changes in persistent volume in the
 - podman inspect allows you to see everythig=ng about how a container was made including the first podman run command
 - node is just thevirtua machine on wich the container is running
 - create an image of ubuntu - might be done without dockerfile
-
 
