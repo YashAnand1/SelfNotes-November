@@ -1,4 +1,4 @@
-<div=center>
+<div allign="center">
 
 # MON 1 NOV
 
