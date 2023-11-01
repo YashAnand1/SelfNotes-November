@@ -90,3 +90,6 @@ To see the stack trace of this error execute with --v=5 or higher
 root@node:/home/imsnode/kubeadm-scripts# 
 
 - First I ran `netstat -aop | grep 10250` for fiding which port was already in use. Output: 
+```
+
+```
