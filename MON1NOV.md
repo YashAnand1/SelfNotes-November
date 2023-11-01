@@ -1,12 +1,12 @@
 <div align="center">
 
 # MON 1 NOV
-</div>
 
 ## Kubernetes Session 2
 
-|**Duration: 10:00-02:30**|**Wednesday**|
+|**Duration: 10:00-02:30**|**Day: Wednesday**|
 |-------------------------|-|
+</div>
 
 
 
