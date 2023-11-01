@@ -43,10 +43,10 @@
 - One Container Should Have One Application (Good Practice) - But you can try for understanding - Otherwise, it's wrong.
 
 **Persistent Volume (PV)**:
-- `podman run -itd --name httpd -P 9-9-"9-`
+- `podman run -itd --name httpd -P <port>`
 - Let's say I have `/var/log` as my log location, and I want to use it as the log in my container as well.
 - Changes in persistent volume in the SE Linux: If "." is at the end of `ls -ld` under the first column of permission, then volume.
-- `podman run -itd --name httpd -- -v/home/yash/logs -P 8080:httpd:latest`
+- `podman run -itd --name httpd -- -v/home/yash/logs -P 8080:httpd:latest` - Most important
 - `podman logs <container>`
 - `podman inspect` allows you to see everything about how a container was made, including the first `podman run` command.
 
