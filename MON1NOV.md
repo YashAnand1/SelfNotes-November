@@ -65,7 +65,7 @@
 
 ## Spreadsheet 
 
-|**Duration: 10:00-02:30**|**Day: Wednesday**|
+|**Duration: 02:30-03:00**|**Day: Wednesday**|
 |-------------------------|------------------|
 </div>
 
