@@ -1,4 +1,4 @@
-<div allign="center">
+<div align="center">
 
 # MON 1 NOV
 
