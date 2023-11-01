@@ -65,7 +65,7 @@
 
 ## Spreadsheet 
 
-|**Duration: 02:30-03:00**|**Day: Wednesday**|
+|**Duration: 10:00-02:30**|**Day: Wednesday**|
 |-------------------------|------------------|
 </div>
 
@@ -76,3 +76,4 @@
 - added N/A to value of ax column backup_tested_date.
 - to add document_tested_date b/w column o-p?
 - changed col BA and made first row physical type to suit the data.
+- changed col X "Haprox_Running" -> Haproxy_Running
