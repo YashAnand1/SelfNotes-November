@@ -2,37 +2,43 @@
 
 ## Kubernetes Session 2 10:00-02:30
 ## 1Nov - Wed - Session 2
-## Check this image from blackboard for reference: https://i.imgur.com/YDL5kxD.jpg
+## Check this image from blackboard for reference: 
+![img](https://i.imgur.com/YDL5kxD.jpg)
+**Root vs. Rootless Container**:
+- Root vs. Rootless Container (Always use Rootless)
+- Unsecure vs. Secure
+- From Root vs. From Home
 
-- root vs rootless container (always make rootless)
-unsecure vs secure
-from root vs from home
+**Dockerfile and Container File**:
+- Dockerfile = Container File (Container File is for Podman)
+- Dockerfile has instructions like FROM, ADD, COPY, RUN, CMD, ENTRYPOINT (ALL CAPS)
 
-- docker file = container file (container file is for podman)
-Dockerfile has some instruction like FROM, ADD, COPY, RUN, CMD, ENTRYPOINT (ALL CAPS)
+**Explanation**:
+- `FROM docker.io/library/ubuntu:latest` (Write the entire registry URL, good practice instead of `ubuntu:latest`)
+- (For installation) `RUN yum install httpd -y` (httpd is Apache) (We can run multiple commands)
+- `COPY code.tar /var/www/html`
+- `ADD code.tar /var/www/html` (Will directly untar, same as `COPY`)
+- `CMD apache -D foreground`
+- Every `FROM`, `COPY`, etc., line is a different layer (line 1 = layer 2). The sequence of each layer is crucial.
+- We can create the container in a Dockerfile from the normal container user, but we define a user inside the container.
+- Dockerfile has some level of abstraction.
+- `podman build -t himanshu-httpd:v1 .` (We add the image here).
+- First, we get the OS, and then we install the Apache image.
 
-- explanation
-FROM  docker.io/library/ubunut:latest (Write entire registry url, good practice instead of ubuntu:latest)
-(for instll) RUN yum install httpd -y (httpd is apache) ( we can run multiple commands) 
-COPY code.tar /var/www/html
-ADD code.tar /var/www/html (will directly untar, same as copy)
-CMD apache -D foreground
-every FROM, COPY, etc. line is a different layer ( line 1 = layer 2) sequence of each layer is very important
-we can create the container in docker file from the normal container user but we define a user inside the container
-docker file has some level of 
-podman build -t himanshu-httpd:v1 . (we add the image here)
-first we got the os and then installed apache image, 
+**Container Best Practice**:
+- One Container Should Have One Application (Good Practice) - But you can try for understanding - Otherwise, it's wrong.
 
-- ONE CONTAINER SHOULD HAVE ONE APPLICATION - GOOD PRACTICE - But you can try for understanding - Otherwise its wrong
+**Persistent Volume (PV)**:
+- `podman run -itd --name httpd -P 9-9-"9-`
+- Let's say I have `/var/log` as my log location, and I want to use it as the log in my container as well.
+- Changes in persistent volume in the SE Linux: If "." is at the end of `ls -ld` under the first column of permission, then volume.
+- `podman run -itd --name httpd -- -v/home/yash/logs -P 8080:httpd:latest`
+- `podman logs <container>`
+- `podman inspect` allows you to see everything about how a container was made, including the first `podman run` command.
 
-- pv 
-podman run -itd --name httpd -P 9-9-"9-
-- lets sau o have /var/log as my log location and i wnt to use it as the log in my container as well
-changes in persistent volume in the 
-- se linux if "." is at the end if ls -ld under the first column of permission then volume 
-- podman run -itd --name httpd -- -v/home/yash/logs -P 8080: httpd:latest 
-- podman logs <container>
-- podman inspect allows you to see everythig=ng about how a container was made including the first podman run command
-- node is just thevirtua machine on wich the container is running
-- create an image of ubuntu - might be done without dockerfile
+**Node**:
+- The node is just the virtual machine on which the container is running.
 
+**Assigned Task**:
+- Create an image of Ubuntu - might be done without a Dockerfile.
+- Guided exercise.
