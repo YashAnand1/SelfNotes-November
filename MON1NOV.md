@@ -40,7 +40,7 @@
 - First, we get the OS, and then we install the Apache image.
 
 **Container Best Practice**:
-- One Container Should Have One Application (Good Practice) - But you can try for understanding - Otherwise, it's wrong.
+- One Container Should Have One Application (Good Practice) - But harsh sir said I can try for understanding - Otherwise, practically it's wrong.
 
 **Persistent Volume (PV)**:
 - `podman run -itd --name httpd -P <port>`
