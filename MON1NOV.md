@@ -1,13 +1,18 @@
 <div align="center">
 
 # MON 1 NOV
+</div>
 
-## Kubernetes Session 2 10:00-02:30
-## 1Nov - Wed - Session 2
-## Check this image from blackboard for reference: 
+## Kubernetes Wed Session 2
+
+<div align="center">
+
 ![img](https://i.imgur.com/YDL5kxD.jpg)
 
 </div>
+
+|**Duration: 10:00-02:30**|
+|-------------------------|
 
 **Root vs. Rootless Container**:
 - Root vs. Rootless Container (Always use Rootless)
