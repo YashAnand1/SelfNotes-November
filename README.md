@@ -1,11 +1,11 @@
 <div align="center">
   
-# November Updates     
+# 🌨️ November Updates     
 # — Self Documentation For Monitoring Purposes —    
 
 _____________________________________________________________________________________                        
 
-## Contents
+## 📚 Contents
 </div>
 
 - [Overview](#overview)
@@ -13,7 +13,7 @@ ________________________________________________________________________________
 
 <div align="center">
    
-# **Overview** 
+# 🪐 **Overview** 
 </div>
 
 _____________________________________________________________________________________   
