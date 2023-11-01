@@ -1,9 +1,14 @@
+<div=center>
+
 # MON 1 NOV
 
 ## Kubernetes Session 2 10:00-02:30
 ## 1Nov - Wed - Session 2
 ## Check this image from blackboard for reference: 
 ![img](https://i.imgur.com/YDL5kxD.jpg)
+
+<div>
+
 **Root vs. Rootless Container**:
 - Root vs. Rootless Container (Always use Rootless)
 - Unsecure vs. Secure
