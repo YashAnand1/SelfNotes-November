@@ -56,3 +56,23 @@
 **Assigned Task**:
 - Create an image of Ubuntu - might be done without a Dockerfile.
 - Guided exercise.
+
+-----------------------------------------
+
+<div align="center">
+
+# MON 1 NOV
+
+## Spreadsheet 
+
+|**Duration: 10:00-02:30**|**Day: Wednesday**|
+|-------------------------|------------------|
+</div>
+
+**Data Manipulation**:
+- changed column AU backup_url content - https://gitlab.com/checkpostApp2/backupconfig -> https://gitlab.com/checkpostApp2/backup.
+- changed format of all dates in sheet from dd/mm/yy to dd-mm-yyyy.
+- changed WWN address in row 2.
+- added N/A to value of ax column backup_tested_date.
+- to add document_tested_date b/w column o-p?
+- changed col BA and made first row physical type to suit the data.
