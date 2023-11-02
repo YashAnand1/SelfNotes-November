@@ -31,16 +31,16 @@ ___________________________
 
 </div>
 
-**Root vs. Rootless Container**:
+### **Root vs. Rootless Container**:
 - Root vs. Rootless Container (Always use Rootless)
 - Unsecure vs. Secure
 - From Root vs. From Home
 
-**Dockerfile and Container File**:
+### **Dockerfile and Container File**:
 - Dockerfile = Container File (Container File is for Podman)
 - Dockerfile has instructions like FROM, ADD, COPY, RUN, CMD, ENTRYPOINT (ALL CAPS)
 
-**Explanation**:
+### **Explanation**:
 - `FROM docker.io/library/ubuntu:latest` (Write the entire registry URL, good practice instead of `ubuntu:latest`)
 - (For installation) `RUN yum install httpd -y` (httpd is Apache) (We can run multiple commands)
 - `COPY code.tar /var/www/html`
@@ -52,10 +52,10 @@ ___________________________
 - `podman build -t himanshu-httpd:v1 .` (We add the image here).
 - First, we get the OS, and then we install the Apache image.
 
-**Container Best Practice**:
+### **Container Best Practice**:
 - One Container Should Have One Application (Good Practice) - But harsh sir said I can try for understanding - Otherwise, practically it's wrong.
 
-**Persistent Volume (PV)**:
+### **Persistent Volume (PV)**:
 - `podman run -itd --name httpd -P <port>`
 - Let's say I have `/var/log` as my log location, and I want to use it as the log in my container as well.
 - Changes in persistent volume in the SE Linux: If "." is at the end of `ls -ld` under the first column of permission, then volume.
@@ -63,10 +63,10 @@ ___________________________
 - `podman logs <container>`
 - `podman inspect` allows you to see everything about how a container was made, including the first `podman run` command.
 
-**Node**:
+### **Node**:
 - The node is just the virtual machine on which the container is running.
 
-**Assigned Task**:
+### **Assigned Task**:
 - Create an image of Ubuntu - might be done without a Dockerfile.
 - Guided exercise.
 
@@ -77,7 +77,7 @@ ___________________________
 ## Spreadsheet 
 </div>
 
-**Data Manipulation**:
+### **Data Manipulation**:
 - changed column AU backup_url content - https://gitlab.com/checkpostApp2/backupconfig -> https://gitlab.com/checkpostApp2/backup.
 - changed format of all dates in sheet from dd/mm/yy to dd-mm-yyyy.
 - changed WWN address in row 2.
@@ -91,7 +91,7 @@ ___________________________
 ## KVM      
 </div>
 
-**Troubleshooting Issues**
+### **Troubleshooting Issues**
 > root@node:/home/imsnode/kubeadm-scripts# kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b 
 [preflight] Running pre-flight checks
 error execution phase preflight: [preflight] Some fatal errors occurred:
