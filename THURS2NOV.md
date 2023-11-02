@@ -167,8 +167,7 @@ Nov 02 12:59:14 master kubelet[2357]: I1102 12:59:14.148611    2357 scope.go:117
 Nov 02 12:59:14 master kubelet[2357]: E1102 12:59:14.149196    2357 pod_workers.go:1300] "Error syncing pod, skipping" err="failed to \"StartContainer\" for \"kube-controller-manager\" with CrashLoopBackOff: \"back-off 40s restarting failed container=kube-controller-manager pod=kube-controller-manager-master_kube-system(f1a02ffb8f3c38c888cedb75ccbdb598)\"" pod="kube-system/kube-controller-manager-master" podUID="f1a02ffb8f3c38c888cedb75ccbdb598"
 Nov 02 12:59:27 master kubelet[2357]: I1102 12:59:27.153923    2357 scope.go:117] "RemoveContainer" containerID="ecc8c9eb01a7f7916fbe279e4d001106670dd5898a4e319c4728cc43ca604d92"
 ```
-- **For setting up the Master VM, I ran the following commands**:
-- From the Hetzner Server, I first ran the following command for copying the kubeadm scripts to the Node machine:
+- **From the Hetzner Server, I first ran the following command for copying the kubeadm scripts to the Node machine**:
 ```
 **scp -r kubeadm-scripts ims-node@192.168.122.246:/home/ims-node**
 ```
