@@ -10,20 +10,11 @@ ____________________________
 # Table of Contents
 
 1. [Kubernetes Session 2](#kubernetes-session-2)
-   - [Root vs. Rootless Container](#root-vs-rootless-container)
-   - [Dockerfile and Container File](#dockerfile-and-container-file)
-   - [Explanation](#explanation)
-   - [Container Best Practice](#container-best-practice)
-   - [Persistent Volume (PV)](#persistent-volume-pv)
-   - [Node](#node)
-   - [Assigned Task](#assigned-task)
 
 2. [Spreadsheet](#spreadsheet)
-   - [Data Manipulation](#data-manipulation)
 
-3. [KVM Troubleshooting Issues](#kvm-troubleshooting-issues)
-   - [Analyzing Pre-flight Checks](#analyzing-pre-flight-checks)
-   - [Attempted Solutions](#attempted-solutions)
+3. [KVM](#kvm)
+   - [Troubleshooting Issues](#troubleshooting-issues)
 
 
 ___________________________
