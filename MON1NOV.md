@@ -6,11 +6,6 @@
 
 |**Duration: 10:00-02:30**|**Day: Wednesday**|
 |-------------------------|-|
-</div>
-
-
-
-<div align="center">
 
 ![img](https://i.imgur.com/YDL5kxD.jpg)
 
