@@ -2,21 +2,43 @@
 
 # WED 1 NOV
 
+</div>
+____________________________
+
+## Tasks
+
+# Table of Contents
+
+1. [Kubernetes Session 2](#kubernetes-session-2)
+   - [Root vs. Rootless Container](#root-vs-rootless-container)
+   - [Dockerfile and Container File](#dockerfile-and-container-file)
+   - [Explanation](#explanation)
+   - [Container Best Practice](#container-best-practice)
+   - [Persistent Volume (PV)](#persistent-volume-pv)
+   - [Node](#node)
+   - [Assigned Task](#assigned-task)
+
+2. [Spreadsheet](#spreadsheet)
+   - [Data Manipulation](#data-manipulation)
+
+3. [KVM Troubleshooting Issues](#kvm-troubleshooting-issues)
+   - [Analyzing Pre-flight Checks](#analyzing-pre-flight-checks)
+   - [Attempted Solutions](#attempted-solutions)
+
+
+___________________________
+
+<div align="center">
+
 ## Kubernetes Session 2
 
 |**Duration: 10:00-02:30**|**Day: Wednesday**|
 |-------------------------|-|
-</div>
 
-
-
-<div align="center">
 
 ![img](https://i.imgur.com/YDL5kxD.jpg)
 
 </div>
-
-
 
 **Root vs. Rootless Container**:
 - Root vs. Rootless Container (Always use Rootless)
