@@ -1,6 +1,7 @@
 <div align="center">
 
-# THURS 2 NOV
+# 01 November, 2023
+**Day: Wednesday**
 
 |**Reached: 09:24**|**Left: ?**|
 |-------------------------|-|
