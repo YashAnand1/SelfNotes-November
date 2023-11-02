@@ -1,6 +1,6 @@
 <div align="center">
 
-# MON 1 NOV
+# WED 1 NOV
 
 ## Kubernetes Session 2
 
