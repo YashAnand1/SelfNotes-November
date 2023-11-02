@@ -98,7 +98,10 @@ ___________________________
 </div>
 
 ### **Troubleshooting Issues**
-> root@node:/home/imsnode/kubeadm-scripts# kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b 
+
+The issue that I was facing was as follows:
+```
+root@node:/home/imsnode/kubeadm-scripts# kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b 
 [preflight] Running pre-flight checks
 error execution phase preflight: [preflight] Some fatal errors occurred:
 [ERROR FileAvailable--etc-kubernetes-kubelet.conf]: /etc/kubernetes/kubelet.conf already exists
@@ -107,6 +110,7 @@ error execution phase preflight: [preflight] Some fatal errors occurred:
 [preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
 To see the stack trace of this error execute with --v=5 or higher
 root@node:/home/imsnode/kubeadm-scripts# 
+```
 
 - First I ran `netstat -aop | grep 10250` for fiding which port was already in use. Output showed that it was being used by kubelet: 
 ```
