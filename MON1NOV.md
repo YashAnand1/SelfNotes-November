@@ -6,6 +6,11 @@
 
 |**Duration: 10:00-02:30**|**Day: Wednesday**|
 |-------------------------|-|
+</div>
+
+
+
+<div align="center">
 
 ![img](https://i.imgur.com/YDL5kxD.jpg)
 
@@ -167,3 +172,11 @@ sudo rm /etc/kubernetes/kubelet.conf
 sudo rm /etc/kubernetes/pki/ca.crt
 ```
 
+- Once I had done that, I ran the kubeadm join command again but I was still unable to solve this issue:
+```
+**kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b**
+[preflight] Running pre-flight checks
+error execution phase preflight: couldn't validate the identity of the API Server: Get "https://192.168.122.12:6443/api/v1/namespaces/kube-public/configmaps/cluster-info?timeout=10s": dial tcp 192.168.122.12:6443: connect: connection refused
+To see the stack trace of this error execute with --v=5 or higher
+root@node:/home/imsnode/Desktop# 
+```
