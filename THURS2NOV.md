@@ -4,9 +4,21 @@
 
 |**Reached: 09:24**|**Left: 07:45**|
 |-------------------------|-|
-
-## KVM
 </div>
+
+______________________________
+## **Index**
+
+- [**KVM**](#KVM)
+	- [**Recap**](#Recap)
+ 	- [**Troubleshooting**](#Troubleshooting)
+________________________________
+
+<div align="center">
+
+## **KVM**
+</div>
+
 
 ### **Recap**
 - As stated in [yesterday's update](https://github.com/yash-anand-fosteringlinux/SelfNotes-November/blob/master/WED1NOV.md#kvm) I was able to resolve the following errors yesterday:
@@ -22,8 +34,9 @@
 **kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b**
 [preflight] Running pre-flight checks
 error execution phase preflight: couldn't validate the identity of the API Server: Get "https://192.168.122.12:6443/api/v1/namespaces/kube-public/configmaps/cluster-info?timeout=10s": dial tcp 192.168.122.12:6443: connect: connection refused
-
 ```
+
+## **Troubleshooting** 
 - Believing that maybe there had been an issue during the set-up, I restored the snapshots of the 2 Master and Worker VMs back to their fresh-install. 
 - **For setting up the Master VM, I ran the following commands**:
 Copying the Kubeadm scripts from Hetzner to Master VM:
