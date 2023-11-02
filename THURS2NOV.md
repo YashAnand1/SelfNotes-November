@@ -6,8 +6,9 @@
 |-------------------------|-|
 
 ## KVM
+</div>
 
-## **Recap**
+### **Recap**
 - I was able to resolve the following errors yesterday:
 ```
 **kubeadm join 192.168.122.12:6443 --token 3e24gr.522ahym3cdm75zcg --discovery-token-ca-cert-hash sha256:4a4782da4051cfd0521b8cf9a260b02345c3388c57a5feb740452efd3a2cd85b**
