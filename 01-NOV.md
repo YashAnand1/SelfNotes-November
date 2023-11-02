@@ -1,6 +1,7 @@
 <div align="center">
 
-# WED 1 NOV
+# 01 November, 2023
+### Wednesday
 
 </div>
 
