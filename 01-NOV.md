@@ -1,7 +1,7 @@
 <div align="center">
 
 # 01 November, 2023
-**Wednesday**
+**Day: Wednesday**
 
 </div>
 
