@@ -3,7 +3,7 @@
 # 02 November, 2023
 **Day: Thursday**
 
-|**Reached: 09:24**|**Left: ?**|
+|**Reached: 09:24**|**Left: 8:40**|
 |-------------------------|-|
 </div>
 
