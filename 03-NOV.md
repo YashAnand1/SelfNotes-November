@@ -9,6 +9,7 @@ ____________________________
 </div>
 
 - [Kubernetes Session 3](#kubernetes-session-3)
+  - [Container Management](#Container-Management)
 
 |**Duration: 10:30-05:30**|
 |-------------------------|
