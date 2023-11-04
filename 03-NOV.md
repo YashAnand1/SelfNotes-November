@@ -1,4 +1,22 @@
-# Kubernetes and Openshift Notes
+<div align="center">
+
+# 03 November, 2023
+**Day: Friday**
+
+____________________________
+
+## Tasks
+</div>
+
+- [Kubernetes Session 3](#kubernetes-session-3)
+
+|**Duration: 10:30-05:30**|
+|-------------------------|
+
+<div align="center">
+
+# Kubernetes Session 3
+</div>
 
 ## Container Management
 
@@ -28,9 +46,6 @@
 - Service maintains pod IPs and handles traffic.
 - Service does load balancing.
 - Services also connect different pods within Openshift.
-
-## Load Balancing
-
 - Achieving load balancing using the least balancing algorithm.
 
 ## Connecting Pods
@@ -39,12 +54,18 @@
 - Use container names instead of IPs for representation.
 - Command for viewing pod logs: `oc logs -f <pod name>`.
 - Events are like logs that provide a story of what happened.
-
-## Deployment Best Practice
-
 - Always perform deployments from YAML for traceability.
 
-## Kubernetes Installation
+## Assigned Tasks
+- From rancher, setup kubernetes.
 
-- Create a Kubernetes cluster on your system from Rancher to join the next class.
-
+## Self-Learning
+- Referred to this [YouTube tutorial](https://www.youtube.com/watch?v=uBgMbO0c9a4) and tried to set up Rancher on my Host machine.
+- Was unable to connect with the Web UI even after creating the cotainerised images.
+- Then I created the containers in a VM and through this method, I was able to set up rancher on my system.
+- I then proceeded with logging into rancher. The codes utilised for this were as follows:
+```
+docker run --priveleged -d --restart=unless-stopped -p 80:80 -p 443:443  rancher/rancher
+docker logs <containerid> 2>&1 | grep "Bootstrap Password:"
+OPEN IN BROWSER: https://<serverIP>
+``` 
