@@ -1,7 +1,7 @@
 <div align="center">
   
 # 🪐 UNDERSTANDING ANSIBLE 🪐    
-# — Documentation of Ansible-Related Progress For Monitoring Purposes —    
+# — Daily Progress-Documentation For Self-Monitoring —    
 
 _____________________________________________________________________________________                        
 
