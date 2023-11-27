@@ -1,7 +1,7 @@
 <div align="center">
   
-# 🌨️ November Updates 🌨️    
-# — Self Documentation For Monitoring Purposes —    
+# 🪐 UNDERSTANDING ANSIBLE 🪐    
+# — Documentation of Ansible-Related Progress For Monitoring Purposes —    
 
 _____________________________________________________________________________________                        
 
@@ -18,12 +18,12 @@ ________________________________________________________________________________
 </div>
 
 
-Greetings from the 1st November of 2023 and welcome to my self-documentation repository which I have set up in order to closely track my everyday office activities in November. 
+Greetings from 27/11/2023 and welcome to the Ansible documentation repository which I have set up in order to closely track my everyday's progress towards learning Ansible. 
 
 | **Please note that the updates added to this repository are for my own reference for helping me monitor my own upskilling. However, I do plan on sharing them in case it is required for me to share my day's contribution in detail.** |
 |----------|
 
-This document is to act like a log of my daily contributions towards work during my time at office. Though the daily updates will be written for my own self-reference, they can also be used as a reference for others who may want to look into the contributions that I have made per day. These updates will be used to systematically log my assignments, accomplishments, and minute information related to command executions. 
+This document is to act like a log of my daily contributions towards understanding Ansible and Ansible-CMDB. Though the daily updates will be written for my own self-reference, they can also be used as a reference for others who may want to look into the contributions that I have made per day.
 
 _____________________________________________________________________________________   
 
